@@ -1,0 +1,16 @@
+{
+  "name": "composite",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Vladyslav Nikolaiev",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "querystring": "^0.2.0"
+  }
+}

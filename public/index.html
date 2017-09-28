@@ -1,0 +1,31 @@
+<html>
+<body>
+	<div>
+		Operations supported:
+		<br>
+		<ul>
+		  <li>^</li>
+		  <li>*</li>
+		  <li>/</li>
+		  <li>+</li>
+		  <li>-</li>
+		  <li>()</li>
+		</ul>
+	</div>
+	<br>
+	<form action="/calculate" method="post">
+		<input type="text" name="expression" id="expression">
+		<input type="submit" value="calculate" id="submitButton">
+	</form>
+	<br>
+	<div id="result">
+	</div>
+</body>
+<script>
+	var searchParams = new URLSearchParams(window.location.search); //?anything=123
+	
+	document.getElementById("expression").value=searchParams.get("expression");
+	document.getElementById("result").innerHTML="Result : " + searchParams.get("result");
+	
+</script>
+</html>
