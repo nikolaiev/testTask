@@ -1,2 +1,1 @@
-Run <b>npm start</b>
-Open in browser http://localhost:3030/
+Open in browser https://test-calculator-task.herokuapp.com

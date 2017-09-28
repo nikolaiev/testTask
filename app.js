@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const querystring = require('querystring');  
-const PORT=3030;
+
+app.set('port', (process.env.PORT || 5000));
 
 /*load classes from file*/
 const Calculator=require('./calculator.js');
@@ -47,14 +48,14 @@ app.post('/calculate',(req,res)=>{
 })
 
 
-app.listen(PORT,(err)=>{
+app.listen(app.get('port'), (err)=> {
 	if(err){
 		console.log("Error starting server");
 		console.log(err);
 		return
 	}
 	
-	console.log("Server listening on port : "+PORT);
+	console.log("Server listening on port : "+app.get('port'));
 });
 
 

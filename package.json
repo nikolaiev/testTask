@@ -4,7 +4,8 @@
   "description": "test task",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node app.js",
+    "start": "node app.js"
   },
   "author": "Vladyslav Nikolaiev",
   "license": "ISC",
@@ -12,5 +13,13 @@
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "querystring": "^0.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolaiev/testTask.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikolaiev/testTask/issues"
+  },
+  "homepage": "https://github.com/nikolaiev/testTask#readme"
 }
