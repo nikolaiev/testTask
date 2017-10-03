@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const querystring = require('querystring');  
+const path = require('path');  
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,8 +15,9 @@ let MyCalculator =new Calculator();
 
 
 /*serving static files*/
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(__dirname,'./public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 /*sends calculator interface*/
@@ -27,6 +28,7 @@ app.get('/',(req,res)=>{
 app.post('/calculate',(req,res)=>{
 	/*input expression*/
 	let expression = req.body.expression;
+	let isError=false;
 	
 	/*future result of calculation*/
 	let result;
@@ -35,16 +37,18 @@ app.post('/calculate',(req,res)=>{
 		result=MyCalculator.calculate(expression);		
 	}
 	catch(e){
-		//console.log(e)
-		result=e;
+		result="Invalid expression";
+		isError=true;
 	}
 	
-	const query = querystring.stringify({
-          "result": result,
+	const resultData = {
+          "result": new String(result),
+		  "isError":isError,
           "expression": expression          
-    });
-	  
-	res.redirect('/?' + query);	
+    };
+	
+	res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(resultData));	
 })
 
 
