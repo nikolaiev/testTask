@@ -37,7 +37,7 @@ module.exports = [
 	},
   
   plugins: [
-	//UglifyJsPlugin,
+	UglifyJsPlugin,
 	new HtmlWebpackPlugin({
 		title: 'Test',
 		hash: true,
@@ -80,6 +80,6 @@ module.exports = [
 	},
 
 	plugins: [
-		//UglifyJsPlugin		
+		UglifyJsPlugin		
 	]
 }];
